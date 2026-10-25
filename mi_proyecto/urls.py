@@ -17,11 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
+from django.views.generic import RedirectView  # <--- Importante
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # Redirige la página principal al login automáticamente
+    path('', RedirectView.as_view(url='/login/', permanent=False)),
     
-    # Ruta del Login apuntando a nuestra plantilla personalizada
+    path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(template_name='core/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
