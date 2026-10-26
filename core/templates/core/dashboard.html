@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Usuarios - Asilo Cabeza de Algodón</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- Barra de Navegación Superior -->
+    <nav class="bg-emerald-700 text-white px-6 py-4 flex justify-between items-center shadow-md">
+        <h1 class="text-xl font-bold">Asilo Cabeza de Algodón</h1>
+        <div class="flex items-center space-x-4">
+            <span class="text-sm">Bienvenido(a), <strong>{{ usuario.username }}</strong></span>
+            
+            {% if usuario.is_superuser %}
+                <a href="/admin/" class="bg-amber-500 hover:bg-amber-600 px-3 py-1.5 rounded text-xs font-bold transition">
+                    Panel Admin
+                </a>
+            {% endif %}
+            
+            <form method="post" action="{% url 'logout' %}" class="inline">
+                {% csrf_token %}
+                <button type="submit" class="bg-red-600 hover:bg-red-700 px-3 py-1.5 rounded text-xs font-bold transition">
+                    Cerrar Sesión
+                </button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal / Panel de Módulos -->
+    <div class="max-w-7xl mx-auto py-10 px-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Módulos del Sistema</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Tarjeta Módulo 1 -->
+            <div class="bg-white p-6 rounded-xl shadow border-t-4 border-emerald-600">
+                <h3 class="text-lg font-bold text-gray-800 mb-2">1. Gestión de Internos</h3>
+                <p class="text-gray-600 text-sm mb-4">Registro de expedientes, psicopatologías y medicinas de cajón.</p>
+                <a href="#" class="inline-block bg-emerald-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-emerald-700 transition">
+                    Ingresar al Módulo
+                </a>
+            </div>
+
+            <!-- Tarjeta Módulo 2 -->
+            <div class="bg-white p-6 rounded-xl shadow border-t-4 border-blue-600">
+                <h3 class="text-lg font-bold text-gray-800 mb-2">2. Solicitudes y Citas</h3>
+                <p class="text-gray-600 text-sm mb-4">Emisión de remisiones web a la fundación y asignación de enfermeros.</p>
+                <span class="text-xs text-gray-400 font-semibold">Próximamente</span>
+            </div>
+
+            <!-- Tarjeta Módulo 3 -->
+            <div class="bg-white p-6 rounded-xl shadow border-t-4 border-purple-600">
+                <h3 class="text-lg font-bold text-gray-800 mb-2">3. Visita Médica</h3>
+                <p class="text-gray-600 text-sm mb-4">Atención especializada, laboratorio y farmacia.</p>
+                <span class="text-xs text-gray-400 font-semibold">Próximamente</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

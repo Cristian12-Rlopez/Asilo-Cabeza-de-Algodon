@@ -17,12 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from django.views.generic import RedirectView  # <--- Importante
+from django.views.generic import RedirectView
+from core.views import dashboard_view  # <--- Importamos nuestra vista
 
 urlpatterns = [
-    # Redirige la página principal al login automáticamente
+    # Redirección de la raíz al login
     path('', RedirectView.as_view(url='/login/', permanent=False)),
     
+    # Portal principal del usuario autenticado
+    path('dashboard/', dashboard_view, name='dashboard'),
+    
+    # Rutas de administración y autenticación
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(template_name='core/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),

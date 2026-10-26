@@ -130,5 +130,5 @@ MAILERS = {
 }
 # Redirecciones de autenticación
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/admin/'  # O cámbialo a la vista principal de tu sistema cuando la crees
+LOGIN_REDIRECT_URL = '/dashboard/'  # <--- Ahora enviará a todos al Portal de Usuarios
 LOGOUT_REDIRECT_URL = '/login/'
