@@ -25,3 +25,23 @@ def expedientes_view(request):
         'usuario': request.user,
         'internos': internos
     })
+
+@login_required
+def motivos_reclusion_view(request):
+    internos = Interno.objects.all().order_by('-fecha_creacion')
+    return render(request, 'core/motivos_reclusion.html', {'usuario': request.user, 'internos': internos})
+
+@login_required
+def ficha_medica_view(request):
+    internos = Interno.objects.all().order_by('-fecha_creacion')
+    return render(request, 'core/ficha_medica.html', {'usuario': request.user, 'internos': internos})
+
+@login_required
+def psicopatologias_view(request):
+    internos = Interno.objects.all().order_by('-fecha_creacion')
+    return render(request, 'core/psicopatologias.html', {'usuario': request.user, 'internos': internos})
+
+@login_required
+def historial_clinico_view(request):
+    internos = Interno.objects.all().order_by('-fecha_creacion')
+    return render(request, 'core/historial_clinico.html', {'usuario': request.user, 'internos': internos})

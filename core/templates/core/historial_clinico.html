@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial Clínico Digital - Asilo Cabeza de Algodón</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-emerald-700 text-white shadow-md px-6 py-3 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <a href="{% url 'dashboard' %}" class="hover:bg-emerald-800 p-2 rounded-lg transition text-sm font-semibold">← Volver al Menú</a>
+            <span class="text-xl font-bold">Módulo 1: Historial Clínico Cronológico (RF-03)</span>
+        </div>
+    </nav>
+    <div class="max-w-7xl mx-auto py-10 px-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-2">Historial Clínico Unificado</h2>
+        <p class="text-sm text-gray-500 mb-6">Consolidado cronológico de consultas, diagnósticos y tratamientos por residente[cite: 30].</p>
+        <div class="bg-white rounded-xl shadow overflow-hidden border border-gray-200">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-50 text-gray-700 text-xs uppercase tracking-wider border-b">
+                    <tr><th class="px-6 py-3">Residente</th><th class="px-6 py-3">Estado del Expediente</th><th class="px-6 py-3 text-center">Acciones</th></tr>
+                </thead>
+                <tbody class="divide-y text-sm text-gray-600">
+                    {% for i in internos %}
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 font-bold text-gray-800">{{ i.nombre }} {{ i.apellido }}</td>
+                        <td class="px-6 py-4"><span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold">Consolidado Activo</span></td>
+                        <td class="px-6 py-4 text-center"><a href="#" class="text-blue-600 hover:underline font-semibold">Ver Línea de Tiempo</a></td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="3" class="px-6 py-10 text-center text-gray-400 italic">No hay expedientes activos.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
