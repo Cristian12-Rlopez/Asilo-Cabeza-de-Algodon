@@ -8,85 +8,84 @@
 </head>
 <body class="bg-gray-100 min-h-screen">
 
-    <!-- Barra de Navegación Superior -->
-    <nav class="bg-emerald-700 text-white px-6 py-4 flex justify-between items-center shadow-md relative">
-        
-        <!-- Izquierda: Menú Desplegable de Módulos y Título -->
-        <div class="flex items-center space-x-4">
-            <!-- Botón del Menú Desplegable -->
-            <div class="relative">
-                <button id="menu-btn" onclick="toggleMenu()" class="bg-emerald-800 hover:bg-emerald-900 px-3 py-2 rounded-lg text-sm font-semibold flex items-center space-x-2 transition shadow">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <span>Módulos</span>
-                </button>
+    <!-- Barra de Navegación Superior Tradicional -->
+    <nav class="bg-emerald-700 text-white shadow-md relative z-40">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            
+            <!-- Izquierda: Logo y Menú Tradicional de Módulos -->
+            <div class="flex items-center space-x-8">
+                <span class="text-xl font-bold tracking-wide">Asilo Cabeza de Algodón</span>
+                
+                <!-- Menú Desplegable Estilo Tradicional -->
+                <div class="relative">
+                    <button id="menu-btn" onclick="toggleMenu()" class="bg-emerald-800 hover:bg-emerald-900 px-4 py-2 rounded-lg text-sm font-semibold flex items-center space-x-2 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                        <span>Módulos del Sistema</span>
+                    </button>
 
-                <!-- Contenido del Menú Desplegable -->
-                <div id="dropdown-menu" class="hidden absolute left-0 mt-2 w-80 bg-white text-gray-800 rounded-xl shadow-2xl py-3 z-50 border border-gray-200">
-                    <div class="px-4 py-2 border-b border-gray-100 font-bold text-xs text-gray-400 uppercase tracking-wider">
-                        Navegación del Sistema
-                    </div>
+                    <!-- Lista Desplegable Tradicional -->
+                    <div id="dropdown-menu" class="hidden absolute left-0 mt-2 w-72 bg-white text-gray-800 rounded-lg shadow-xl py-2 border border-gray-200">
+                        
+                        <!-- Opción Módulo 1 -->
+                        <div class="px-4 py-2 hover:bg-gray-100 cursor-pointer border-b border-gray-100">
+                            <p class="font-bold text-emerald-700 text-xs uppercase tracking-wider">1. Gestión de Internos</p>
+                            <div class="pl-2 mt-1 space-y-1 text-xs text-gray-600">
+                                <a href="#" class="block py-1 hover:text-emerald-600">• Listado de Expedientes</a>
+                                <a href="#" class="block py-1 hover:text-emerald-600">• Registrar Nuevo Interno</a>
+                                <a href="#" class="block py-1 hover:text-emerald-600">• Control de Psicopatologías</a>
+                            </div>
+                        </div>
 
-                    <!-- Módulo 1 -->
-                    <div class="px-4 py-2 hover:bg-gray-50">
-                        <p class="font-bold text-emerald-700 text-sm">1. Gestión de Internos</p>
-                        <ul class="pl-4 mt-1 space-y-1 text-xs text-gray-600">
-                            <li><a href="#" class="hover:text-emerald-600 block py-0.5">• Listado de Expedientes</a></li>
-                            <li><a href="#" class="hover:text-emerald-600 block py-0.5">• Registrar Nuevo Interno</a></li>
-                            <li><a href="#" class="hover:text-emerald-600 block py-0.5">• Control de Psicopatologías</a></li>
-                        </ul>
-                    </div>
+                        <!-- Opción Módulo 2 -->
+                        <div class="px-4 py-2 hover:bg-gray-100 cursor-pointer border-b border-gray-100">
+                            <p class="font-bold text-blue-700 text-xs uppercase tracking-wider">2. Solicitudes y Citas</p>
+                            <div class="pl-2 mt-1 space-y-1 text-xs text-gray-600">
+                                <a href="#" class="block py-1 hover:text-blue-600">• Remisiones Web a Fundación</a>
+                                <a href="#" class="block py-1 hover:text-blue-600">• Asignación de Enfermeros</a>
+                            </div>
+                        </div>
 
-                    <!-- Módulo 2 -->
-                    <div class="px-4 py-2 hover:bg-gray-50 border-t border-gray-100">
-                        <p class="font-bold text-blue-700 text-sm">2. Solicitudes y Citas</p>
-                        <ul class="pl-4 mt-1 space-y-1 text-xs text-gray-600">
-                            <li><a href="#" class="hover:text-blue-600 block py-0.5">• Remisiones Web a Fundación</a></li>
-                            <li><a href="#" class="hover:text-blue-600 block py-0.5">• Asignación de Enfermeros</a></li>
-                        </ul>
-                    </div>
+                        <!-- Opción Módulo 3 -->
+                        <div class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                            <p class="font-bold text-purple-700 text-xs uppercase tracking-wider">3. Visita Médica</p>
+                            <div class="pl-2 mt-1 space-y-1 text-xs text-gray-600">
+                                <a href="#" class="block py-1 hover:text-purple-600">• Atención Especializada</a>
+                                <a href="#" class="block py-1 hover:text-purple-600">• Farmacia y Medicamentos</a>
+                            </div>
+                        </div>
 
-                    <!-- Módulo 3 -->
-                    <div class="px-4 py-2 hover:bg-gray-50 border-t border-gray-100">
-                        <p class="font-bold text-purple-700 text-sm">3. Visita Médica</p>
-                        <ul class="pl-4 mt-1 space-y-1 text-xs text-gray-600">
-                            <li><a href="#" class="hover:text-purple-600 block py-0.5">• Atención Especializada</a></li>
-                            <li><a href="#" class="hover:text-purple-600 block py-0.5">• Farmacia y Medicamentos</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
 
-            <h1 class="text-xl font-bold tracking-wide">Asilo Cabeza de Algodón</h1>
-        </div>
-
-        <!-- Derecha: Usuario y Acciones -->
-        <div class="flex items-center space-x-4">
-            <span class="text-sm">Bienvenido(a), <strong class="underline">{{ usuario.username }}</strong></span>
-            
-            {% if usuario.is_superuser %}
-                <a href="/admin/" class="bg-amber-500 hover:bg-amber-600 px-3 py-1.5 rounded text-xs font-bold transition shadow">
-                    Panel Admin
-                </a>
-            {% endif %}
-            
-            <form method="post" action="{% url 'logout' %}" class="inline">
-                {% csrf_token %}
-                <button type="submit" class="bg-red-600 hover:bg-red-700 px-3 py-1.5 rounded text-xs font-bold transition shadow">
-                    Cerrar Sesión
-                </button>
-            </form>
+            <!-- Derecha: Usuario y Acciones -->
+            <div class="flex items-center space-x-4">
+                <span class="text-sm">Bienvenido(a), <strong class="underline">{{ usuario.username }}</strong></span>
+                
+                {% if usuario.is_superuser %}
+                    <a href="/admin/" class="bg-amber-500 hover:bg-amber-600 px-3 py-1.5 rounded text-xs font-bold transition shadow">
+                        Panel Admin
+                    </a>
+                {% endif %}
+                
+                <form method="post" action="{% url 'logout' %}" class="inline">
+                    {% csrf_token %}
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 px-3 py-1.5 rounded text-xs font-bold transition shadow">
+                        Cerrar Sesión
+                    </button>
+                </form>
+            </div>
         </div>
     </nav>
 
-    <!-- Contenido Principal / Panel de Tarjetas -->
+    <!-- Contenido Principal -->
     <div class="max-w-7xl mx-auto py-10 px-6">
         <h2 class="text-2xl font-bold text-gray-800 mb-6">Panel Principal de Gestión</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Tarjeta Módulo 1 -->
-            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-emerald-600 hover:shadow-lg transition">
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-emerald-600">
                 <h3 class="text-lg font-bold text-gray-800 mb-2">1. Gestión de Internos</h3>
                 <p class="text-gray-600 text-sm mb-4">Registro de expedientes, psicopatologías y medicinas de cajón.</p>
                 <a href="#" class="inline-block bg-emerald-600 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-emerald-700 transition">
@@ -94,15 +93,13 @@
                 </a>
             </div>
 
-            <!-- Tarjeta Módulo 2 -->
-            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-600 hover:shadow-lg transition">
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-600">
                 <h3 class="text-lg font-bold text-gray-800 mb-2">2. Solicitudes y Citas</h3>
                 <p class="text-gray-600 text-sm mb-4">Emisión de remisiones web a la fundación y asignación de enfermeros.</p>
                 <span class="inline-block bg-gray-100 text-gray-500 text-xs font-semibold px-3 py-1.5 rounded-md">Próximamente</span>
             </div>
 
-            <!-- Tarjeta Módulo 3 -->
-            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-purple-600 hover:shadow-lg transition">
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-purple-600">
                 <h3 class="text-lg font-bold text-gray-800 mb-2">3. Visita Médica</h3>
                 <p class="text-gray-600 text-sm mb-4">Atención especializada, laboratorio y farmacia.</p>
                 <span class="inline-block bg-gray-100 text-gray-500 text-xs font-semibold px-3 py-1.5 rounded-md">Próximamente</span>
@@ -110,14 +107,13 @@
         </div>
     </div>
 
-    <!-- Script sencillo para desplegar el menú con clic -->
+    <!-- Script de control -->
     <script>
         function toggleMenu() {
             const menu = document.getElementById('dropdown-menu');
             menu.classList.toggle('hidden');
         }
 
-        // Ocultar el menú si se hace clic fuera de él
         window.addEventListener('click', function(e) {
             const btn = document.getElementById('menu-btn');
             const menu = document.getElementById('dropdown-menu');
