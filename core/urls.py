@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
+from django.urls import path
+from .views import dashboard_view, expedientes_view  # <--- Asegúrate de tener esta línea
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -8,4 +10,6 @@ urlpatterns = [
     # Ruta del Login apuntando a nuestra plantilla personalizada
     path('login/', auth_views.LoginView.as_view(template_name='core/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('dashboard/', dashboard_view, name='dashboard'),
+    path('expedientes/', expedientes_view, name='expedientes_generales'),
 ]

@@ -1,12 +1,14 @@
 from django.db import models
 
 class Interno(models.Model):
-    nombre = models.CharField(max_length=100)
-    apellido = models.CharField(max_length=100)
-    fecha_nacimiento = models.DateField()
-    motivo_reclusion = models.TextField()
-    psicopatologias = models.TextField(blank=True, null=True)
-    medicinas_de_cajon = models.TextField(blank=True, null=True)
+    nombre = models.CharField(max_length=100, verbose_name="Nombres")
+    apellido = models.CharField(max_length=100, verbose_name="Apellidos")
+    fecha_nacimiento = models.DateField(verbose_name="Fecha de Nacimiento")
+    motivo_reclusion = models.TextField(verbose_name="Motivo o Causa de Reclusión")
+    psicopatologias = models.TextField(blank=True, null=True, verbose_name="Psicopatologías Base")
+    medicinas_cajon = models.TextField(blank=True, null=True, verbose_name="Medicinas de Cajón")
+    estado = models.CharField(max_length=50, default='Activo', verbose_name="Estado del Interno")
+    fecha_creacion = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Registro")
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"

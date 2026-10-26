@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expedientes Generales - Asilo Cabeza de Algodón</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- Barra Superior -->
+    <nav class="bg-emerald-700 text-white shadow-md px-6 py-3 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <a href="{% url 'dashboard' %}" class="hover:bg-emerald-800 p-2 rounded-lg transition text-sm font-semibold flex items-center space-x-1">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                <span>Volver al Menú</span>
+            </a>
+            <span class="text-xl font-bold">Módulo 1: Expedientes Generales (RF-01)</span>
+        </div>
+        <div>
+            <span class="text-sm">Usuario: <strong>{{ usuario.username }}</strong></span>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div class="max-w-7xl mx-auto py-10 px-6">
+        
+        <div class="flex justify-between items-center mb-6">
+            <div>
+                <h2 class="text-2xl font-bold text-gray-800">Listado de Internos Activos</h2>
+                <p class="text-sm text-gray-500">Administración de expedientes y causas de reclusión institucionales.</p>
+            </div>
+            <!-- Botón para Registrar Nuevo Interno (Siguiente paso) -->
+            <a href="#" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-bold shadow transition">
+                + Registrar Nuevo Interno
+            </a>
+        </div>
+
+        <!-- Tabla de Datos -->
+        <div class="bg-white rounded-xl shadow overflow-hidden border border-gray-200">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-50 text-gray-700 text-xs uppercase tracking-wider border-b border-gray-200">
+                    <tr>
+                        <th class="px-6 py-3">ID</th>
+                        <th class="px-6 py-3">Nombre Completo</th>
+                        <th class="px-6 py-3">Fecha Nacimiento</th>
+                        <th class="px-6 py-3">Motivo de Reclusión</th>
+                        <th class="px-6 py-3">Estado</th>
+                        <th class="px-6 py-3 text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 text-sm text-gray-600">
+                    {% for interno in internos %}
+                    <tr class="hover:bg-gray-50 transition">
+                        <td class="px-6 py-4 font-bold text-gray-800">#{{ interno.id }}</td>
+                        <td class="px-6 py-4 font-semibold text-gray-900">{{ interno.nombre }} {{ interno.apellido }}</td>
+                        <td class="px-6 py-4">{{ interno.fecha_nacimiento }}</td>
+                        <td class="px-6 py-4 truncate max-w-xs">{{ interno.motivo_reclusion }}</td>
+                        <td class="px-6 py-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold">{{ interno.estado }}</span>
+                        </td>
+                        <td class="px-6 py-4 text-center space-x-2">
+                            <a href="#" class="text-blue-600 hover:underline font-semibold">Ver Ficha</a>
+                            <span class="text-gray-300">|</span>
+                            <a href="#" class="text-red-600 hover:underline font-semibold">Editar</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="px-6 py-10 text-center text-gray-400 italic">
+                            No hay expedientes registrados en el sistema todavía. ¡Usa el panel de administración o crea el formulario de registro para empezar!
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>
