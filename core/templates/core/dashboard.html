@@ -45,51 +45,87 @@
     <!-- CAPA CORTINA (OVERLAY) -->
     <div id="sidebar-overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity"></div>
 
-    <!-- MENÚ LATERAL DESPLEGABLE (SIDEBAR DRAWER) -->
-    <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
-        <div class="p-4 bg-emerald-700 text-white flex justify-between items-center">
+    <!-- MENÚ LATERAL DESPLEGABLE CON LOS 5 MÓDULOS -->
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-72 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+        <div class="p-4 bg-emerald-700 text-white flex justify-between items-center sticky top-0 z-10">
             <div class="flex items-center space-x-3">
                 <button onclick="toggleSidebar()" class="p-1 hover:bg-emerald-800 rounded-lg transition">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-                <span class="font-bold text-lg">Módulos</span>
+                <span class="font-bold text-lg">Módulos del Sistema</span>
             </div>
         </div>
 
         <div class="py-4 divide-y divide-gray-100">
+            <!-- Inicio -->
             <div class="px-3 py-2">
                 <a href="/dashboard/" class="flex items-center space-x-3 px-3 py-2 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-sm">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                     </svg>
-                    <span>Inicio</span>
+                    <span>Inicio / Resumen General</span>
                 </a>
             </div>
 
+            <!-- MÓDULO 1 -->
             <div class="px-3 py-3">
                 <p class="px-3 text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2">1. Gestión de Internos</p>
-                <ul class="space-y-1 text-sm text-gray-700">
-                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Listado Expedientes</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Registrar Interno</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Psicopatologías</span></a></li>
+                <ul class="space-y-1 text-xs text-gray-700">
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Expedientes Generales (RF-01)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Motivos de Reclusión (RF-01)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Ficha Médica y Medicinas Cajón (RF-02)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Registro Psicopatologías (RF-02)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Historial Clínico Digital (RF-03)</span></a></li>
                 </ul>
             </div>
 
+            <!-- MÓDULO 2 -->
             <div class="px-3 py-3">
-                <p class="px-3 text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">2. Solicitudes y Citas</p>
-                <ul class="space-y-1 text-sm text-gray-700">
-                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Remisiones Web</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Asignación Enfermeros</span></a></li>
+                <p class="px-3 text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">2. Solicitudes y Agenda</p>
+                <ul class="space-y-1 text-xs text-gray-700">
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Evaluaciones Iniciales (RF-04)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Solicitudes Remisión Web (RF-04)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Asignación Enfermeros (RF-04)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Agenda Citas Fundación (RF-05)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Notificación Correo SMTP (RF-06)</span></a></li>
                 </ul>
             </div>
 
+            <!-- MÓDULO 3 -->
             <div class="px-3 py-3">
-                <p class="px-3 text-xs font-bold text-purple-700 uppercase tracking-wider mb-2">3. Visita Médica</p>
-                <ul class="space-y-1 text-sm text-gray-700">
-                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Atención Especializada</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Farmacia / Medicinas</span></a></li>
+                <p class="px-3 text-xs font-bold text-purple-700 uppercase tracking-wider mb-2">3. Visita Médica y Servicios</p>
+                <ul class="space-y-1 text-xs text-gray-700">
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Consultas Especializadas (RF-07)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Diagnóstico y Observaciones (RF-07)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Órdenes de Laboratorio (RF-08)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Carga Resultados Digitales (RF-08)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Recetas y Despacho Farmacia (RF-09)</span></a></li>
+                </ul>
+            </div>
+
+            <!-- MÓDULO 4 -->
+            <div class="px-3 py-3">
+                <p class="px-3 text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">4. Gestión Financiera</p>
+                <ul class="space-y-1 text-xs text-gray-700">
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-amber-50 hover:text-amber-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Descuentos Fundación (RF-10)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-amber-50 hover:text-amber-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Cuentas por Pagar Fundación (RF-11)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-amber-50 hover:text-amber-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Cargos Cuotas Familiares (RF-12)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-amber-50 hover:text-amber-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Registro Donaciones (RF-13)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-amber-50 hover:text-amber-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Gastos Operativos Asilo (RF-13)</span></a></li>
+                </ul>
+            </div>
+
+            <!-- MÓDULO 5 -->
+            <div class="px-3 py-3">
+                <p class="px-3 text-xs font-bold text-rose-700 uppercase tracking-wider mb-2">5. Sistema de Reportes</p>
+                <ul class="space-y-1 text-xs text-gray-700">
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Reportes Clínicos Paciente (RF-14)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Balance Ingresos y Donaciones (RF-15)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Estado Egreso Operativo (RF-15)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Control Costos por Cita (RF-15)</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Exportación PDF y Excel (RF-15)</span></a></li>
                 </ul>
             </div>
         </div>
@@ -102,57 +138,63 @@
         <div class="bg-gradient-to-r from-emerald-800 to-emerald-600 rounded-2xl shadow-lg text-white p-8 mb-8">
             <h2 class="text-3xl font-bold mb-2">Asilo "Cabeza de Algodón"</h2>
             <p class="text-emerald-100 text-sm max-w-3xl leading-relaxed">
-                Sistema integral para la coordinación de la atención médica de los internos, logística de remisiones a fundaciones especialistas y control financiero institucional. Utiliza el menú lateral izquierdo para navegar entre los diferentes módulos operativos.
+                Sistema integral para la coordinación de la atención médica de los internos, logística de remisiones a fundaciones especialistas y control financiero institucional[cite: 27]. Utiliza el menú lateral izquierdo para desplegar los 5 módulos funcionales[cite: 30, 31, 32].
             </p>
         </div>
 
-        <!-- Panel de Estadísticas y Resumen Rápido -->
-        <h3 class="text-xl font-bold text-gray-800 mb-4">Resumen Operativo del Sistema</h3>
+        <!-- Tarjetas Resumen de los 5 Módulos -->
+        <h3 class="text-xl font-bold text-gray-800 mb-4">Resumen de Módulos del Sistema</h3>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <!-- Bloque 1: Internos -->
+            <!-- Bloque 1 -->
             <div class="bg-white p-6 rounded-xl shadow border-l-4 border-emerald-600">
                 <div class="flex justify-between items-center mb-2">
-                    <h4 class="font-bold text-gray-700 text-sm">Gestión de Internos</h4>
+                    <h4 class="font-bold text-gray-700 text-sm">1. Gestión de Internos</h4>
                     <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold">Módulo 1</span>
                 </div>
-                <p class="text-gray-500 text-xs mb-4">Control de expedientes, causas de reclusión y tratamientos de cajón fijos[cite: 30].</p>
-                <a href="#" class="text-emerald-600 hover:underline text-sm font-bold flex items-center space-x-1">
-                    <span>Ver expedientes</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </a>
+                <p class="text-gray-500 text-xs mb-4">CRUD de expedientes, causas de reclusión, psicopatologías y medicinas de cajón[cite: 30].</p>
             </div>
 
-            <!-- Bloque 2: Solicitudes -->
+            <!-- Bloque 2 -->
             <div class="bg-white p-6 rounded-xl shadow border-l-4 border-blue-600">
                 <div class="flex justify-between items-center mb-2">
-                    <h4 class="font-bold text-gray-700 text-sm">Solicitudes y Citas</h4>
+                    <h4 class="font-bold text-gray-700 text-sm">2. Solicitudes y Agenda</h4>
                     <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-semibold">Módulo 2</span>
                 </div>
-                <p class="text-gray-500 text-xs mb-4">Remisiones web hacia la fundación y asignación de personal de enfermería[cite: 31].</p>
-                <a href="#" class="text-blue-600 hover:underline text-sm font-bold flex items-center space-x-1">
-                    <span>Gestionar citas</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </a>
+                <p class="text-gray-500 text-xs mb-4">Remisiones web a la fundación, asignación de enfermeros y avisos SMTP[cite: 31].</p>
             </div>
 
-            <!-- Bloque 3: Visita Médica y Finanzas -->
+            <!-- Bloque 3 -->
             <div class="bg-white p-6 rounded-xl shadow border-l-4 border-purple-600">
                 <div class="flex justify-between items-center mb-2">
-                    <h4 class="font-bold text-gray-700 text-sm">Visita Médica y Finanzas</h4>
-                    <span class="bg-purple-100 text-purple-800 text-xs px-2.5 py-1 rounded-full font-semibold">Módulos 3 y 4</span>
+                    <h4 class="font-bold text-gray-700 text-sm">3. Visita Médica y Servicios</h4>
+                    <span class="bg-purple-100 text-purple-800 text-xs px-2.5 py-1 rounded-full font-semibold">Módulo 3</span>
                 </div>
-                <p class="text-gray-500 text-xs mb-4">Control de recetas, laboratorio, cobros automáticos y cuotas familiares[cite: 31].</p>
-                <a href="#" class="text-purple-600 hover:underline text-sm font-bold flex items-center space-x-1">
-                    <span>Ver servicios</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </a>
+                <p class="text-gray-500 text-xs mb-4">Atención de especialistas, diagnósticos, laboratorio digital y farmacia[cite: 31].</p>
+            </div>
+
+            <!-- Bloque 4 -->
+            <div class="bg-white p-6 rounded-xl shadow border-l-4 border-amber-600">
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-bold text-gray-700 text-sm">4. Gestión Financiera</h4>
+                    <span class="bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded-full font-semibold">Módulo 4</span>
+                </div>
+                <p class="text-gray-500 text-xs mb-4">Descuentos, cuotas mensuales a familiares, donaciones y egresos[cite: 31].</p>
+            </div>
+
+            <!-- Bloque 5 -->
+            <div class="bg-white p-6 rounded-xl shadow border-l-4 border-rose-600">
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-bold text-gray-700 text-sm">5. Sistema de Reportes</h4>
+                    <span class="bg-rose-100 text-rose-800 text-xs px-2.5 py-1 rounded-full font-semibold">Módulo 5</span>
+                </div>
+                <p class="text-gray-500 text-xs mb-4">Compilación de balances financieros e historiales exportables a PDF/Excel[cite: 31, 32].</p>
             </div>
         </div>
 
     </div>
 
-    <!-- SCRIPT DE CONTROL -->
+    <!-- SCRIPT DE CONTROL DEL MENÚ LATERAL -->
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
