@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Usuarios - Asilo Cabeza de Algodón</title>
+    <title>Panel General - Asilo Cabeza de Algodón</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen relative overflow-x-hidden">
@@ -12,7 +12,7 @@
     <nav class="bg-emerald-700 text-white shadow-md sticky top-0 z-30">
         <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
             
-            <!-- Botón Hamburguesa Estilo YouTube y Título -->
+            <!-- Botón Hamburguesa Estilo YouTube -->
             <div class="flex items-center space-x-4">
                 <button onclick="toggleSidebar()" class="p-2 hover:bg-emerald-800 rounded-lg transition focus:outline-none" title="Abrir menú">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -42,13 +42,11 @@
         </div>
     </nav>
 
-    <!-- CAPA CORTINA (OVERLAY) TIPO YOUTUBE -->
+    <!-- CAPA CORTINA (OVERLAY) -->
     <div id="sidebar-overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity"></div>
 
     <!-- MENÚ LATERAL DESPLEGABLE (SIDEBAR DRAWER) -->
     <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
-        
-        <!-- Cabecera del Menú Lateral -->
         <div class="p-4 bg-emerald-700 text-white flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <button onclick="toggleSidebar()" class="p-1 hover:bg-emerald-800 rounded-lg transition">
@@ -60,10 +58,7 @@
             </div>
         </div>
 
-        <!-- Lista de Opciones Estilo YouTube -->
         <div class="py-4 divide-y divide-gray-100">
-            
-            <!-- Inicio / Dashboard -->
             <div class="px-3 py-2">
                 <a href="/dashboard/" class="flex items-center space-x-3 px-3 py-2 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-sm">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -73,105 +68,95 @@
                 </a>
             </div>
 
-            <!-- Sección Módulo 1 -->
             <div class="px-3 py-3">
                 <p class="px-3 text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2">1. Gestión de Internos</p>
                 <ul class="space-y-1 text-sm text-gray-700">
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition">
-                            <span class="text-gray-400">•</span>
-                            <span>Listado Expedientes</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition">
-                            <span class="text-gray-400">•</span>
-                            <span>Registrar Interno</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition">
-                            <span class="text-gray-400">•</span>
-                            <span>Psicopatologías</span>
-                        </a>
-                    </li>
+                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Listado Expedientes</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Registrar Interno</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Psicopatologías</span></a></li>
                 </ul>
             </div>
 
-            <!-- Sección Módulo 2 -->
             <div class="px-3 py-3">
                 <p class="px-3 text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">2. Solicitudes y Citas</p>
                 <ul class="space-y-1 text-sm text-gray-700">
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition">
-                            <span class="text-gray-400">•</span>
-                            <span>Remisiones Web</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition">
-                            <span class="text-gray-400">•</span>
-                            <span>Asignación Enfermeros</span>
-                        </a>
-                    </li>
+                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Remisiones Web</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Asignación Enfermeros</span></a></li>
                 </ul>
             </div>
 
-            <!-- Sección Módulo 3 -->
             <div class="px-3 py-3">
                 <p class="px-3 text-xs font-bold text-purple-700 uppercase tracking-wider mb-2">3. Visita Médica</p>
                 <ul class="space-y-1 text-sm text-gray-700">
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition">
-                            <span class="text-gray-400">•</span>
-                            <span>Atención Especializada</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition">
-                            <span class="text-gray-400">•</span>
-                            <span>Farmacia / Medicinas</span>
-                        </a>
-                    </li>
+                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Atención Especializada</span></a></li>
+                    <li><a href="#" class="flex items-center space-x-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition"><span class="text-gray-400">•</span><span>Farmacia / Medicinas</span></a></li>
                 </ul>
             </div>
-
         </div>
     </aside>
 
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- CONTENIDO PRINCIPAL: INFORMACIÓN GENERAL DEL ASILO -->
     <div class="max-w-7xl mx-auto py-10 px-6">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">Panel Principal de Gestión</h2>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-emerald-600 hover:shadow-lg transition">
-                <h3 class="text-lg font-bold text-gray-800 mb-2">1. Gestión de Internos</h3>
-                <p class="text-gray-600 text-sm mb-4">Registro de expedientes, psicopatologías y medicinas de cajón.</p>
-                <a href="#" class="inline-block bg-emerald-600 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-emerald-700 transition">
-                    Ingresar al Módulo
+        <!-- Tarjeta de Bienvenida Institucional -->
+        <div class="bg-gradient-to-r from-emerald-800 to-emerald-600 rounded-2xl shadow-lg text-white p-8 mb-8">
+            <h2 class="text-3xl font-bold mb-2">Asilo "Cabeza de Algodón"</h2>
+            <p class="text-emerald-100 text-sm max-w-3xl leading-relaxed">
+                Sistema integral para la coordinación de la atención médica de los internos, logística de remisiones a fundaciones especialistas y control financiero institucional. Utiliza el menú lateral izquierdo para navegar entre los diferentes módulos operativos.
+            </p>
+        </div>
+
+        <!-- Panel de Estadísticas y Resumen Rápido -->
+        <h3 class="text-xl font-bold text-gray-800 mb-4">Resumen Operativo del Sistema</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <!-- Bloque 1: Internos -->
+            <div class="bg-white p-6 rounded-xl shadow border-l-4 border-emerald-600">
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-bold text-gray-700 text-sm">Gestión de Internos</h4>
+                    <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold">Módulo 1</span>
+                </div>
+                <p class="text-gray-500 text-xs mb-4">Control de expedientes, causas de reclusión y tratamientos de cajón fijos[cite: 30].</p>
+                <a href="#" class="text-emerald-600 hover:underline text-sm font-bold flex items-center space-x-1">
+                    <span>Ver expedientes</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </a>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-600 hover:shadow-lg transition">
-                <h3 class="text-lg font-bold text-gray-800 mb-2">2. Solicitudes y Citas</h3>
-                <p class="text-gray-600 text-sm mb-4">Emisión de remisiones web a la fundación y asignación de enfermeros.</p>
-                <span class="inline-block bg-gray-100 text-gray-500 text-xs font-semibold px-3 py-1.5 rounded-md">Próximamente</span>
+            <!-- Bloque 2: Solicitudes -->
+            <div class="bg-white p-6 rounded-xl shadow border-l-4 border-blue-600">
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-bold text-gray-700 text-sm">Solicitudes y Citas</h4>
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-semibold">Módulo 2</span>
+                </div>
+                <p class="text-gray-500 text-xs mb-4">Remisiones web hacia la fundación y asignación de personal de enfermería[cite: 31].</p>
+                <a href="#" class="text-blue-600 hover:underline text-sm font-bold flex items-center space-x-1">
+                    <span>Gestionar citas</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-purple-600 hover:shadow-lg transition">
-                <h3 class="text-lg font-bold text-gray-800 mb-2">3. Visita Médica</h3>
-                <p class="text-gray-600 text-sm mb-4">Atención especializada, laboratorio y farmacia.</p>
-                <span class="inline-block bg-gray-100 text-gray-500 text-xs font-semibold px-3 py-1.5 rounded-md">Próximamente</span>
+            <!-- Bloque 3: Visita Médica y Finanzas -->
+            <div class="bg-white p-6 rounded-xl shadow border-l-4 border-purple-600">
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-bold text-gray-700 text-sm">Visita Médica y Finanzas</h4>
+                    <span class="bg-purple-100 text-purple-800 text-xs px-2.5 py-1 rounded-full font-semibold">Módulos 3 y 4</span>
+                </div>
+                <p class="text-gray-500 text-xs mb-4">Control de recetas, laboratorio, cobros automáticos y cuotas familiares[cite: 31].</p>
+                <a href="#" class="text-purple-600 hover:underline text-sm font-bold flex items-center space-x-1">
+                    <span>Ver servicios</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
             </div>
         </div>
+
     </div>
 
-    <!-- SCRIPT DE CONTROL DEL MENÚ LATERAL -->
+    <!-- SCRIPT DE CONTROL -->
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('sidebar-overlay');
-            
             sidebar.classList.toggle('-translate-x-full');
             overlay.classList.toggle('hidden');
         }
