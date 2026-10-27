@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Notificación Correo SMTP</title><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-blue-700 text-white shadow-md px-6 py-3 flex justify-between items-center">
+        <a href="{% url 'dashboard' %}" class="hover:bg-blue-800 p-2 rounded text-sm font-semibold">← Volver al Menú</a>
+        <span class="text-xl font-bold">Notificaciones Automáticas por Correo (RF-06)</span>
+    </nav>
+    <div class="max-w-7xl mx-auto py-10 px-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Registro de Alertas a Familiares</h2>
+        <div class="bg-white rounded-xl shadow overflow-hidden border">
+            <table class="w-full text-left text-sm">
+                <thead class="bg-gray-50 text-gray-700 uppercase text-xs border-b">
+                    <tr><th class="px-6 py-3">Residente</th><th class="px-6 py-3">Canal SMTP</th><th class="px-6 py-3">Estado de Envío</th></tr>
+                </thead>
+                <tbody class="divide-y text-gray-600">
+                    {% for s in solicitudes %}
+                    <tr class="hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-800">{{ s.interno }}</td><td class="px-6 py-4">Servidor SMTP Configurado</td><td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-semibold">Notificación Enviada</span></td></tr>
+                    {% empty %}
+                    <tr><td colspan="3" class="px-6 py-10 text-center text-gray-400 italic">No hay correos notificados recientemente.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

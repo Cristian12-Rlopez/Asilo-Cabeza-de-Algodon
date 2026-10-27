@@ -66,4 +66,31 @@ class MovimientoFinanciero(models.Model):
     def __str__(self):
         return f"{self.tipo_movimiento} - {self.monto}"
 
+class Enfermero(models.Model):
+    nombre = models.CharField(max_length=100, verbose_name="Nombre del Enfermero(a)")
+    telefono = models.CharField(max_length=20, blank=True, null=True, verbose_name="Teléfono")
+
+    def __str__(self):
+        return self.nombre
+
+class SolicitudRemision(models.Model):
+    interno = models.ForeignKey(Interno, on_delete=models.CASCADE, verbose_name="Residente / Interno")
+    evaluacion_inicial = models.TextField(verbose_name="Evaluación Médica Inicial")
+    especialidad_requerida = models.CharField(max_length=100, verbose_name="Especialidad Requerida")
+    enfermero_asignado = models.ForeignKey(Enfermero, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Enfermero Acompañante")
+    fecha_emision = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Emisión")
+    estado = models.CharField(max_length=50, default='Pendiente', verbose_name="Estado de Solicitud")
+
+    def __str__(self):
+        return f"Remisión #{self.id} - {self.interno}"
+
+class AgendaCita(models.Model):
+    solicitud = models.OneToOneField(SolicitudRemision, on_delete=models.CASCADE, verbose_name="Solicitud Base")
+    fecha_hora_cita = models.DateTimeField(verbose_name="Fecha y Hora de la Cita")
+    medico_especialista = models.CharField(max_length=100, verbose_name="Médico Especialista Asignado")
+    estado_cita = models.CharField(max_length=50, default='Agendada', verbose_name="Estado de Cita")
+
+    def __str__(self):
+        return f"Cita con {self.medico_especialista} ({self.fecha_hora_cita})"
+
 # Create your models here.

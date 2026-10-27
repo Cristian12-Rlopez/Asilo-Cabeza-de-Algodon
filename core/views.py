@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Interno
+from .models import Enfermero, SolicitudRemision, AgendaCita
 
 # Vista pública para usuarios generales (Landing Page)
 def inicio(request):
@@ -45,3 +46,29 @@ def psicopatologias_view(request):
 def historial_clinico_view(request):
     internos = Interno.objects.all().order_by('-fecha_creacion')
     return render(request, 'core/historial_clinico.html', {'usuario': request.user, 'internos': internos})
+
+@login_required
+def evaluaciones_iniciales_view(request):
+    solicitudes = SolicitudRemision.objects.all().order_by('-fecha_emision')
+    return render(request, 'core/evaluaciones_iniciales.html', {'usuario': request.user, 'solicitudes': solicitudes})
+
+@login_required
+def remisiones_web_view(request):
+    solicitudes = SolicitudRemision.objects.all().order_by('-fecha_emision')
+    return render(request, 'core/remisiones_web.html', {'usuario': request.user, 'solicitudes': solicitudes})
+
+@login_required
+def asignacion_enfermeros_view(request):
+    enfermeros = Enfermero.objects.all()
+    solicitudes = SolicitudRemision.objects.all()
+    return render(request, 'core/asignacion_enfermeros.html', {'usuario': request.user, 'enfermeros': enfermeros, 'solicitudes': solicitudes})
+
+@login_required
+def agenda_citas_view(request):
+    citas = AgendaCita.objects.all().order_by('-fecha_hora_cita')
+    return render(request, 'core/agenda_citas.html', {'usuario': request.user, 'citas': citas})
+
+@login_required
+def notificacion_smtp_view(request):
+    solicitudes = SolicitudRemision.objects.all().order_by('-fecha_emision')
+    return render(request, 'core/notificacion_smtp.html', {'usuario': request.user, 'solicitudes': solicitudes})
