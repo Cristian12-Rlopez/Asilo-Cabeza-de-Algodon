@@ -113,4 +113,48 @@ class OrdenLaboratorio(models.Model):
     def __str__(self):
         return f"Examen: {self.tipo_examen} ({self.consulta.interno})"
 
+class DescuentoFundacion(models.Model):
+    interno = models.ForeignKey(Interno, on_delete=models.CASCADE, verbose_name="Residente / Interno")
+    monto = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Monto de Descuento (Q)")
+    motivo = models.CharField(max_length=200, verbose_name="Motivo del Descuento")
+    fecha = models.DateField(auto_now_add=True, verbose_name="Fecha de Aplicación")
+
+    def __str__(self):
+        return f"Descuento Q{self.monto} - {self.interno}"
+
+class CuentaPorPagar(models.Model):
+    concepto = models.CharField(max_length=150, verbose_name="Concepto / Proveedor")
+    monto = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Monto Pendiente (Q)")
+    fecha_vencimiento = models.DateField(verbose_name="Fecha de Vencimiento")
+    estado = models.CharField(max_length=50, default='Pendiente', verbose_name="Estado de Pago")
+
+    def __str__(self):
+        return f"CxP: {self.concepto} (Q{self.monto})"
+
+class CuotaFamiliar(models.Model):
+    interno = models.ForeignKey(Interno, on_delete=models.CASCADE, verbose_name="Residente / Interno")
+    monto_cuota = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Monto de Cuota (Q)")
+    mes_correspondiente = models.CharField(max_length=50, verbose_name="Mes / Periodo")
+    pagado = models.BooleanField(default=False, verbose_name="¿Pagado?")
+
+    def __str__(self):
+        return f"Cuota {self.mes_correspondiente} - {self.interno}"
+
+class Donacion(models.Model):
+    donante = models.CharField(max_length=150, verbose_name="Nombre del Donante")
+    monto = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Monto Donado (Q)")
+    descripcion = models.TextField(blank=True, null=True, verbose_name="Descripción / Observaciones")
+    fecha = models.DateField(auto_now_add=True, verbose_name="Fecha de Donación")
+
+    def __str__(self):
+        return f"Donación de {self.donante} (Q{self.monto})"
+
+class GastoOperativo(models.Model):
+    concepto = models.CharField(max_length=150, verbose_name="Concepto de Gasto")
+    monto = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Monto (Q)")
+    categoria = models.CharField(max_length=100, verbose_name="Categoría Operativa")
+    fecha = models.DateField(auto_now_add=True, verbose_name="Fecha del Gasto")
+
+    def __str__(self):
+        return f"Gasto: {self.concepto} (Q{self.monto})"
 # Create your models here.

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Interno
 from .models import Enfermero, SolicitudRemision, AgendaCita
 from .models import Interno, Enfermero, SolicitudRemision, AgendaCita, ConsultaMedica, OrdenLaboratorio
+from .models import DescuentoFundacion, CuentaPorPagar, CuotaFamiliar, Donacion, GastoOperativo
 
 # Vista pública para usuarios generales (Landing Page)
 def inicio(request):
@@ -98,3 +99,27 @@ def recetas_farmacia_view(request):
     consultas = ConsultaMedica.objects.all().order_by('-fecha_consulta')
     return render(request, 'core/recetas_farmacia.html', {'usuario': request.user, 'consultas': consultas})
 
+@login_required
+def descuentos_fundacion_view(request):
+    descuentos = DescuentoFundacion.objects.all().order_by('-fecha')
+    return render(request, 'core/descuentos_fundacion.html', {'usuario': request.user, 'descuentos': descuentos})
+
+@login_required
+def cuentas_pagar_view(request):
+    cuentas = CuentaPorPagar.objects.all().order_by('fecha_vencimiento')
+    return render(request, 'core/cuentas_pagar.html', {'usuario': request.user, 'cuentas': cuentas})
+
+@login_required
+def cargos_cuotas_view(request):
+    cargos = CuotaFamiliar.objects.all().order_by('-id')
+    return render(request, 'core/cargos_cuotas.html', {'usuario': request.user, 'cargos': cargos})
+
+@login_required
+def registro_donaciones_view(request):
+    donaciones = Donacion.objects.all().order_by('-fecha')
+    return render(request, 'core/registro_donaciones.html', {'usuario': request.user, 'donaciones': donaciones})
+
+@login_required
+def gastos_operativos_view(request):
+    gastos = GastoOperativo.objects.all().order_by('-fecha')
+    return render(request, 'core/gastos_operativos.html', {'usuario': request.user, 'gastos': gastos})

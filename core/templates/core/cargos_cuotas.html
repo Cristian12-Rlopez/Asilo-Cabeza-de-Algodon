@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Cargos Cuotas Familiares</title><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-amber-700 text-white shadow-md px-6 py-3 flex justify-between items-center">
+        <a href="{% url 'dashboard' %}" class="hover:bg-amber-800 p-2 rounded text-sm font-semibold">← Volver al Menú</a>
+        <span class="text-xl font-bold">Módulo 4: Cargos a Cuotas de Familiares</span>
+    </nav>
+    <div class="max-w-7xl mx-auto py-10 px-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Control de Cuotas Mensuales</h2>
+        <div class="bg-white rounded-xl shadow overflow-hidden border">
+            <table class="w-full text-left text-sm">
+                <thead class="bg-gray-50 text-gray-700 uppercase text-xs border-b">
+                    <tr><th class="px-6 py-3">Residente</th><th class="px-6 py-3">Periodo</th><th class="px-6 py-3">Monto (Q)</th><th class="px-6 py-3">Estado</th></tr>
+                </thead>
+                <tbody class="divide-y text-gray-600">
+                    {% for ca in cargos %}
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 font-bold text-gray-800">{{ ca.interno }}</td>
+                        <td class="px-6 py-4">{{ ca.mes_correspondiente }}</td>
+                        <td class="px-6 py-4 font-semibold text-gray-900">Q{{ ca.monto_cuota }}</td>
+                        <td class="px-6 py-4">
+                            {% if ca.pagado %}
+                            <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold">Pagado</span>
+                            {% else %}
+                            <span class="bg-rose-100 text-rose-800 text-xs px-2.5 py-1 rounded-full font-semibold">Pendiente</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="4" class="px-6 py-10 text-center text-gray-400 italic">No hay cuotas registradas.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

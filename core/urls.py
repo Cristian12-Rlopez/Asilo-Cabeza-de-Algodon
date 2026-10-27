@@ -18,6 +18,11 @@ from .views import (
     ordenes_laboratorio_view,
     carga_resultados_view,
     recetas_farmacia_view,
+    descuentos_fundacion_view,
+    cuentas_pagar_view,
+    cargos_cuotas_view,
+    registro_donaciones_view,
+    gastos_operativos_view,
 )
 
 urlpatterns = [
@@ -40,4 +45,9 @@ urlpatterns = [
     path('ordenes-laboratorio/', ordenes_laboratorio_view, name='ordenes_laboratorio'),
     path('carga-resultados/', carga_resultados_view, name='carga_resultados'),
     path('recetas-farmacia/', recetas_farmacia_view, name='recetas_farmacia'),
+    path('descuentos-fundacion/', descuentos_fundacion_view, name='descuentos_fundacion'),
+    path('cuentas-pagar/', cuentas_pagar_view, name='cuentas_pagar'),
+    path('cargos-cuotas/', cargos_cuotas_view, name='cargos_cuotas'),
+    path('registro-donaciones/', registro_donaciones_view, name='registro_donaciones'),
+    path('gastos-operativos/', gastos_operativos_view, name='gastos_operativos'),
 ]
