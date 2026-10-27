@@ -1,8 +1,7 @@
 from django.contrib import admin
 from .models import (
-    Interno, FamiliarResponsables, ConsultaMedica, AgendaCita, 
-    FichaMedica, RecetaMedica, InsumoInventario, Donacion, 
-    GastoOperativo, PagoFundacion
+    Interno, FamiliarResponsable, ConsultaMedica, AgendaCita, 
+    Donacion, GastoOperativo, PagoFundacion
 )
 
 # Configuración personalizada del sitio de administración
@@ -16,8 +15,8 @@ class InternoAdmin(admin.ModelAdmin):
     list_filter = ('estado', 'habitacion')
     search_fields = ('nombre', 'apellido', 'dpi')
 
-@admin.register(FamiliarResponsables)
-class FamiliarResponsablesAdmin(admin.ModelAdmin):
+@admin.register(FamiliarResponsable)
+class FamiliarResponsableAdmin(admin.ModelAdmin):
     list_display = ('nombre_completo', 'parentesco', 'telefono', 'interno')
     search_fields = ('nombre_completo', 'interno__nombre', 'interno__apellido')
 
@@ -32,22 +31,6 @@ class AgendaCitaAdmin(admin.ModelAdmin):
     list_display = ('interno', 'fecha_hora_cita', 'medico_especialista', 'estado_cita')
     list_filter = ('estado_cita', 'fecha_hora_cita')
     search_fields = ('interno__nombre', 'medico_especialista')
-
-@admin.register(FichaMedica)
-class FichaMedicaAdmin(admin.ModelAdmin):
-    list_display = ('interno', 'tipo_sangre', 'alergias', 'padecimientos_cronicos')
-    search_fields = ('interno__nombre', 'interno__apellido')
-
-@admin.register(RecetaMedica)
-class RecetaMedicaAdmin(admin.ModelAdmin):
-    list_display = ('interno', 'medicamento', 'dosis', 'frecuencia')
-    search_fields = ('interno__nombre', 'medicamento')
-
-@admin.register(InsumoInventario)
-class InsumoInventarioAdmin(admin.ModelAdmin):
-    list_display = ('nombre_insumo', 'categoria', 'cantidad_disponible', 'unidad_medida')
-    list_filter = ('categoria',)
-    search_fields = ('nombre_insumo',)
 
 @admin.register(Donacion)
 class DonacionAdmin(admin.ModelAdmin):
