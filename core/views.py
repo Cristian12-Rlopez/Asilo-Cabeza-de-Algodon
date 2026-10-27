@@ -4,6 +4,7 @@ from .models import Interno
 from .models import Enfermero, SolicitudRemision, AgendaCita
 from .models import Interno, Enfermero, SolicitudRemision, AgendaCita, ConsultaMedica, OrdenLaboratorio
 from .models import DescuentoFundacion, CuentaPorPagar, CuotaFamiliar, Donacion, GastoOperativo
+from .models import Interno, Donacion, GastoOperativo, AgendaCita, ConsultaMedica
 
 # Vista pública para usuarios generales (Landing Page)
 def inicio(request):
@@ -123,3 +124,27 @@ def registro_donaciones_view(request):
 def gastos_operativos_view(request):
     gastos = GastoOperativo.objects.all().order_by('-fecha')
     return render(request, 'core/gastos_operativos.html', {'usuario': request.user, 'gastos': gastos})
+
+@login_required
+def reportes_clinicos_view(request):
+    internos = Interno.objects.all().order_by('nombre')
+    return render(request, 'core/reportes_clinicos.html', {'usuario': request.user, 'internos': internos})
+
+@login_required
+def balance_ingresos_view(request):
+    donaciones = Donacion.objects.all().order_by('-fecha')
+    return render(request, 'core/balance_ingresos.html', {'usuario': request.user, 'donaciones': donaciones})
+
+@login_required
+def estado_egreso_view(request):
+    gastos = GastoOperativo.objects.all().order_by('-fecha')
+    return render(request, 'core/estado_egreso.html', {'usuario': request.user, 'gastos': gastos})
+
+@login_required
+def control_costos_view(request):
+    citas = AgendaCita.objects.all().order_by('-fecha_hora_cita')
+    return render(request, 'core/control_costos.html', {'usuario': request.user, 'citas': citas})
+
+@login_required
+def exportacion_pdf_excel_view(request):
+    return render(request, 'core/exportacion_pdf_excel.html', {'usuario': request.user})

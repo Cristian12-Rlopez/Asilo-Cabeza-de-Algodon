@@ -23,6 +23,11 @@ from .views import (
     cargos_cuotas_view,
     registro_donaciones_view,
     gastos_operativos_view,
+    reportes_clinicos_view,
+    balance_ingresos_view,
+    estado_egreso_view,
+    control_costos_view,
+    exportacion_pdf_excel_view,
 )
 
 urlpatterns = [
@@ -50,4 +55,9 @@ urlpatterns = [
     path('cargos-cuotas/', cargos_cuotas_view, name='cargos_cuotas'),
     path('registro-donaciones/', registro_donaciones_view, name='registro_donaciones'),
     path('gastos-operativos/', gastos_operativos_view, name='gastos_operativos'),
+    path('reportes-clinicos/', reportes_clinicos_view, name='reportes_clinicos'),
+    path('balance-ingresos/', balance_ingresos_view, name='balance_ingresos'),
+    path('estado-egreso/', estado_egreso_view, name='estado_egreso'),
+    path('control-costos/', control_costos_view, name='control_costos'),
+    path('exportacion-pdf-excel/', exportacion_pdf_excel_view, name='exportacion_pdf_excel'),
 ]

@@ -121,11 +121,11 @@
             <div class="px-3 py-3">
                 <p class="px-3 text-xs font-bold text-rose-700 uppercase tracking-wider mb-2">5. Sistema de Reportes</p>
                 <ul class="space-y-1 text-xs text-gray-700">
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Reportes Clínicos Paciente</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Balance Ingresos y Donaciones</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Estado Egreso Operativo</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Control Costos por Cita</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Exportación PDF y Excel</span></a></li>
+                    <li><a href="{% url 'reportes_clinicos' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Reportes Clínicos Paciente</span></a></li>
+    <li><a href="{% url 'balance_ingresos' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Balance Ingresos y Donaciones</span></a></li>
+    <li><a href="{% url 'estado_egreso' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Estado Egreso Operativo</span></a></li>
+    <li><a href="{% url 'control_costos' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Control Costos por Cita</span></a></li>
+    <li><a href="{% url 'exportacion_pdf_excel' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-rose-50 hover:text-rose-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Exportación PDF y Excel</span></a></li>
                 </ul>
             </div>
         </div>
