@@ -85,11 +85,11 @@
             <div class="px-3 py-3">
                 <p class="px-3 text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">2. Solicitudes y Agenda</p>
                 <ul class="space-y-1 text-xs text-gray-700">
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Evaluaciones Iniciales</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Solicitudes Remisión Web</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Asignación Enfermeros</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Agenda Citas Fundación</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Notificación Correo SMTP</span></a></li>
+                    <li><a href="{% url 'evaluaciones_iniciales' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Evaluaciones Iniciales (RF-04)</span></a></li>
+                    <li><a href="{% url 'remisiones_web' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Solicitudes Remisión Web (RF-04)</span></a></li>
+                    <li><a href="{% url 'asignacion_enfermeros' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Asignación Enfermeros (RF-04)</span></a></li>
+                    <li><a href="{% url 'agenda_citas' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Agenda Citas Fundación (RF-05)</span></a></li>
+                    <li><a href="{% url 'notificacion_smtp' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Notificación Correo SMTP (RF-06)</span></a></li>
                 </ul>
             </div>
 
