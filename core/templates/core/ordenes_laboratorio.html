@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Órdenes de Laboratorio</title><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-purple-700 text-white shadow-md px-6 py-3 flex justify-between items-center">
+        <a href="{% url 'dashboard' %}" class="hover:bg-purple-800 p-2 rounded text-sm font-semibold">← Volver al Menú</a>
+        <span class="text-xl font-bold">Órdenes de Análisis Clínicos (RF-08)</span>
+    </nav>
+    <div class="max-w-7xl mx-auto py-10 px-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Solicitudes de Laboratorio</h2>
+        <div class="bg-white rounded-xl shadow overflow-hidden border">
+            <table class="w-full text-left text-sm">
+                <thead class="bg-gray-50 text-gray-700 uppercase text-xs border-b">
+                    <tr><th class="px-6 py-3">Fecha Solicitud</th><th class="px-6 py-3">Residente</th><th class="px-6 py-3">Tipo de Examen</th><th class="px-6 py-3">Estado</th></tr>
+                </thead>
+                <tbody class="divide-y text-gray-600">
+                    {% for o in ordenes %}
+                    <tr class="hover:bg-gray-50"><td class="px-6 py-4">{{ o.fecha_solicitud }}</td><td class="px-6 py-4 font-bold text-gray-800">{{ o.consulta.interno }}</td><td class="px-6 py-4 font-semibold text-purple-700">{{ o.tipo_examen }}</td><td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded-full font-semibold">{{ o.estado }}</span></td></tr>
+                    {% empty %}
+                    <tr><td colspan="4" class="px-6 py-10 text-center text-gray-400 italic">No hay órdenes de laboratorio activas.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

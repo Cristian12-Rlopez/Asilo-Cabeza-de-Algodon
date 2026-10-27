@@ -93,4 +93,24 @@ class AgendaCita(models.Model):
     def __str__(self):
         return f"Cita con {self.medico_especialista} ({self.fecha_hora_cita})"
 
+class ConsultaMedica(models.Model):
+    interno = models.ForeignKey(Interno, on_delete=models.CASCADE, verbose_name="Residente / Interno")
+    medico_especialista = models.CharField(max_length=100, verbose_name="Médico Especialista")
+    fecha_consulta = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Consulta")
+    diagnostico = models.TextField(verbose_name="Diagnóstico u Observaciones")
+    tratamiento_recetado = models.TextField(blank=True, null=True, verbose_name="Receta / Medicamentos")
+
+    def __str__(self):
+        return f"Consulta {self.interno} - {self.medico_especialista}"
+
+class OrdenLaboratorio(models.Model):
+    consulta = models.ForeignKey(ConsultaMedica, on_delete=models.CASCADE, verbose_name="Consulta Médica Asociada")
+    tipo_examen = models.CharField(max_length=150, verbose_name="Tipo de Examen Requerido")
+    resultado = models.TextField(blank=True, null=True, verbose_name="Resultado Digital / Informe")
+    estado = models.CharField(max_length=50, default='Pendiente', verbose_name="Estado de Orden")
+    fecha_solicitud = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Solicitud")
+
+    def __str__(self):
+        return f"Examen: {self.tipo_examen} ({self.consulta.interno})"
+
 # Create your models here.

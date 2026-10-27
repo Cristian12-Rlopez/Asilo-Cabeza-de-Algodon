@@ -97,11 +97,11 @@
             <div class="px-3 py-3">
                 <p class="px-3 text-xs font-bold text-purple-700 uppercase tracking-wider mb-2">3. Visita Médica y Servicios</p>
                 <ul class="space-y-1 text-xs text-gray-700">
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Consultas Especializadas</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Diagnóstico y Observaciones</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Órdenes de Laboratorio</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Carga Resultados Digitales</span></a></li>
-                    <li><a href="#" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Recetas y Despacho Farmacia</span></a></li>
+                    <li><a href="{% url 'consultas_especializadas' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Consultas Especializadas</span></a></li>
+                    <li><a href="{% url 'diagnostico_observaciones' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Diagnóstico y Observaciones</span></a></li>
+                    <li><a href="{% url 'ordenes_laboratorio' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Órdenes de Laboratorio</span></a></li>
+                    <li><a href="{% url 'carga_resultados' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Carga Resultados Digitales</span></a></li>
+                    <li><a href="{% url 'recetas_farmacia' %}" class="flex items-center space-x-2 px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition"><span class="text-gray-400">•</span><span>Recetas y Despacho Farmacia</span></a></li>
                 </ul>
             </div>
 

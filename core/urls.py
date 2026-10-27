@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from django.urls import path
 from .views import (
     dashboard_view,
     expedientes_view,
@@ -14,7 +13,12 @@ from .views import (
     asignacion_enfermeros_view,
     agenda_citas_view,
     notificacion_smtp_view,
-)  # <--- Aquí cerramos correctamente el paréntesis de las importaciones
+    consultas_especializadas_view,
+    diagnostico_observaciones_view,
+    ordenes_laboratorio_view,
+    carga_resultados_view,
+    recetas_farmacia_view,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,4 +35,9 @@ urlpatterns = [
     path('asignacion-enfermeros/', asignacion_enfermeros_view, name='asignacion_enfermeros'),
     path('agenda-citas/', agenda_citas_view, name='agenda_citas'),
     path('notificacion-smtp/', notificacion_smtp_view, name='notificacion_smtp'),
+    path('consultas-especializadas/', consultas_especializadas_view, name='consultas_especializadas'),
+    path('diagnostico-observaciones/', diagnostico_observaciones_view, name='diagnostico_observaciones'),
+    path('ordenes-laboratorio/', ordenes_laboratorio_view, name='ordenes_laboratorio'),
+    path('carga-resultados/', carga_resultados_view, name='carga_resultados'),
+    path('recetas-farmacia/', recetas_farmacia_view, name='recetas_farmacia'),
 ]

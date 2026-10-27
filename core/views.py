@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Interno
 from .models import Enfermero, SolicitudRemision, AgendaCita
+from .models import Interno, Enfermero, SolicitudRemision, AgendaCita, ConsultaMedica, OrdenLaboratorio
 
 # Vista pública para usuarios generales (Landing Page)
 def inicio(request):
@@ -59,9 +60,8 @@ def remisiones_web_view(request):
 
 @login_required
 def asignacion_enfermeros_view(request):
-    enfermeros = Enfermero.objects.all()
     solicitudes = SolicitudRemision.objects.all()
-    return render(request, 'core/asignacion_enfermeros.html', {'usuario': request.user, 'enfermeros': enfermeros, 'solicitudes': solicitudes})
+    return render(request, 'core/asignacion_enfermeros.html', {'usuario': request.user, 'solicitudes': solicitudes})
 
 @login_required
 def agenda_citas_view(request):
@@ -72,3 +72,29 @@ def agenda_citas_view(request):
 def notificacion_smtp_view(request):
     solicitudes = SolicitudRemision.objects.all().order_by('-fecha_emision')
     return render(request, 'core/notificacion_smtp.html', {'usuario': request.user, 'solicitudes': solicitudes})
+
+@login_required
+def consultas_especializadas_view(request):
+    consultas = ConsultaMedica.objects.all().order_by('-fecha_consulta')
+    return render(request, 'core/consultas_especializadas.html', {'usuario': request.user, 'consultas': consultas})
+
+@login_required
+def diagnostico_observaciones_view(request):
+    consultas = ConsultaMedica.objects.all().order_by('-fecha_consulta')
+    return render(request, 'core/diagnostico_observaciones.html', {'usuario': request.user, 'consultas': consultas})
+
+@login_required
+def ordenes_laboratorio_view(request):
+    ordenes = OrdenLaboratorio.objects.all().order_by('-fecha_solicitud')
+    return render(request, 'core/ordenes_laboratorio.html', {'usuario': request.user, 'ordenes': ordenes})
+
+@login_required
+def carga_resultados_view(request):
+    ordenes = OrdenLaboratorio.objects.all().order_by('-fecha_solicitud')
+    return render(request, 'core/carga_resultados.html', {'usuario': request.user, 'ordenes': ordenes})
+
+@login_required
+def recetas_farmacia_view(request):
+    consultas = ConsultaMedica.objects.all().order_by('-fecha_consulta')
+    return render(request, 'core/recetas_farmacia.html', {'usuario': request.user, 'consultas': consultas})
+
