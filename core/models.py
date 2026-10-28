@@ -1,18 +1,16 @@
 from django.db import models
 
 class Interno(models.Model):
-    nombre = models.CharField(max_length=100)
-    # apellido = models.CharField(max_length=100)
+    nombre_completo = models.CharField(max_length=100)
     fecha_nacimiento = models.DateField(null=True, blank=True)
-    # fecha_creacion = models.DateField(auto_now_add=True, null=True, blank=True) # <-- Soluciona el error de fecha_creacion
-    # habitacion = models.CharField(max_length=20, null=True, blank=True)
+    habitacion = models.CharField(max_length=20, null=True, blank=True)
     motivo_reclusion = models.TextField()
-    # psicopatologias = models.TextField(blank=True, null=True)
-    # medicinas_de_cajon = models.TextField(blank=True, null=True)
+    psicopatologias = models.TextField(blank=True, null=True)
+    medicinas_de_cajon = models.TextField(blank=True, null=True)
     estado = models.CharField(max_length=20, default='Activo')
 
     def __str__(self):
-        return f"{self.nombre} {self.apellido}"
+        return f"{self.nombre_completo}"
 
 class FamiliarResponsable(models.Model):
     interno = models.ForeignKey(Interno, on_delete=models.CASCADE, related_name='familiares')
