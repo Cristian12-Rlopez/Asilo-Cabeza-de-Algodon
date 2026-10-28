@@ -25,7 +25,7 @@ def dashboard_view(request):
 @login_required
 def expedientes_view(request):
     # Consultamos todos los expedientes ordenados por fecha de creación
-    internos = Interno.objects.all().order_by('-fecha_creacion')
+    internos = Interno.objects.all().order_by('-id')
     return render(request, 'core/expedientes.html', {
         'usuario': request.user,
         'internos': internos
@@ -33,22 +33,22 @@ def expedientes_view(request):
 
 @login_required
 def motivos_reclusion_view(request):
-    internos = Interno.objects.all().order_by('-fecha_creacion')
+    internos = Interno.objects.all().order_by('-id')
     return render(request, 'core/motivos_reclusion.html', {'usuario': request.user, 'internos': internos})
 
 @login_required
 def ficha_medica_view(request):
-    internos = Interno.objects.all().order_by('-fecha_creacion')
+    internos = Interno.objects.all().order_by('-id')
     return render(request, 'core/ficha_medica.html', {'usuario': request.user, 'internos': internos})
 
 @login_required
 def psicopatologias_view(request):
-    internos = Interno.objects.all().order_by('-fecha_creacion')
+    internos = Interno.objects.all().order_by('-id')
     return render(request, 'core/psicopatologias.html', {'usuario': request.user, 'internos': internos})
 
 @login_required
 def historial_clinico_view(request):
-    internos = Interno.objects.all().order_by('-fecha_creacion')
+    internos = Interno.objects.all().order_by('-id')
     return render(request, 'core/historial_clinico.html', {'usuario': request.user, 'internos': internos})
 
 @login_required
@@ -118,7 +118,7 @@ def cargos_cuotas_view(request):
 
 @login_required
 def registro_donaciones_view(request):
-    donaciones = Donacion.objects.all().order_by('-fecha')
+    donaciones = Donacion.objects.all().order_by('-id')
     return render(request, 'core/registro_donaciones.html', {'usuario': request.user, 'donaciones': donaciones})
 
 @login_required
@@ -128,12 +128,12 @@ def gastos_operativos_view(request):
 
 @login_required
 def reportes_clinicos_view(request):
-    internos = Interno.objects.all().order_by('nombre')
+    internos = Interno.objects.all().order_by('-id')
     return render(request, 'core/reportes_clinicos.html', {'usuario': request.user, 'internos': internos})
 
 @login_required
 def balance_ingresos_view(request):
-    donaciones = Donacion.objects.all().order_by('-fecha')
+    donaciones = Donacion.objects.all().order_by('-id')
     return render(request, 'core/balance_ingresos.html', {'usuario': request.user, 'donaciones': donaciones})
 
 @login_required
