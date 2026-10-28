@@ -3,10 +3,10 @@ from django.db import models
 class Interno(models.Model):
     nombre_completo = models.CharField(max_length=100)
     fecha_nacimiento = models.DateField(null=True, blank=True)
-    habitacion = models.CharField(max_length=20, null=True, blank=True)
+    # habitacion = models.CharField(max_length=20, null=True, blank=True)
     motivo_reclusion = models.TextField()
-    psicopatologias = models.TextField(blank=True, null=True)
-    medicinas_de_cajon = models.TextField(blank=True, null=True)
+    # psicopatologias = models.TextField(blank=True, null=True)
+    # medicinas_de_cajon = models.TextField(blank=True, null=True)
     estado = models.CharField(max_length=20, default='Activo')
 
     def __str__(self):
