@@ -5,6 +5,7 @@ class Interno(models.Model):
     apellido = models.CharField(max_length=100)
     dpi = models.CharField(max_length=20, unique=True, null=True, blank=True)
     fecha_nacimiento = models.DateField(null=True, blank=True)
+    fecha_creacion = models.DateField(auto_now_add=True, null=True, blank=True) # <-- Soluciona el error de fecha_creacion
     habitacion = models.CharField(max_length=20, null=True, blank=True)
     motivo_reclusion = models.TextField()
     psicopatologias = models.TextField(blank=True, null=True)
@@ -17,7 +18,7 @@ class Interno(models.Model):
 class FamiliarResponsable(models.Model):
     interno = models.ForeignKey(Interno, on_delete=models.CASCADE, related_name='familiares')
     nombre_completo = models.CharField(max_length=150, default="")
-    parentesco = models.CharField(max_length=50, default="")
+    parentesco = models.CharField(max_length=50)
     telefono = models.CharField(max_length=20)
     correo_electronico = models.EmailField()
 
@@ -87,14 +88,14 @@ class VisitaMedica(models.Model):
     diagnostico = models.TextField()
     observaciones = models.TextField(blank=True, null=True)
     costo_total = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-    estado_pago = models.CharField(max_length=30, default='Pendiente') # Pendiente, Abonada, Cancelada
+    estado_pago = models.CharField(max_length=30, default='Pendiente')
 
     def __str__(self):
         return f"Visita a {self.interno} - {self.fecha_visita}"
 
 class PagoFundacion(models.Model):
     visita = models.ForeignKey(VisitaMedica, on_delete=models.CASCADE, related_name='pagos', null=True, blank=True)
-    fecha = models.DateField(auto_now_add=True)
+    fecha = models.DateField(auto_now_add=True, null=True, blank=True)
     monto = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     forma_pago = models.CharField(max_length=50, default='Efectivo/Transferencia')
 
@@ -109,9 +110,9 @@ class Donacion(models.Model):
         ('Particular', 'Particular'),
     ]
     donante = models.CharField(max_length=150)
-    tipo_donacion = models.CharField(max_length=50, choices=TIPO_DONANTE, default='Particular') # <-- Asegúrate del default aquí
+    tipo_donacion = models.CharField(max_length=50, choices=TIPO_DONANTE, default='Particular')
     monto = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-    fecha = models.DateField(auto_now_add=True)
+    fecha = models.DateField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return f"{self.donante} - Q{self.monto}"
@@ -124,8 +125,8 @@ class GastoOperativo(models.Model):
     ]
     concepto = models.CharField(max_length=150)
     categoria = models.CharField(max_length=50, choices=CATEGORIA_GASTO)
-    monto = models.DecimalField(max_digits=10, decimal_places=2)
-    fecha = models.DateField()
+    monto = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    fecha = models.DateField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return f"{self.concepto} - Q{self.monto}"
@@ -155,5 +156,5 @@ class CuotaFamiliar(models.Model):
     pagado = models.BooleanField(default=False, verbose_name="¿Pagado?")
 
     def __str__(self):
-        return f"Cuota {self.mes_correspondiente} - {self.interno}"   
+        return f"Cuota {self.mes_correspondiente} - {self.interno}" 
 # Create your models here.
