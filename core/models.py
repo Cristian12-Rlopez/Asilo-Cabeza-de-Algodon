@@ -5,7 +5,7 @@ class Interno(models.Model):
     apellido = models.CharField(max_length=100)
     fecha_nacimiento = models.DateField(null=True, blank=True)
     fecha_creacion = models.DateField(auto_now_add=True, null=True, blank=True) # <-- Soluciona el error de fecha_creacion
-    habitacion = models.CharField(max_length=20, null=True, blank=True)
+    # habitacion = models.CharField(max_length=20, null=True, blank=True)
     motivo_reclusion = models.TextField()
     psicopatologias = models.TextField(blank=True, null=True)
     medicinas_de_cajon = models.TextField(blank=True, null=True)
