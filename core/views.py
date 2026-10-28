@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import Interno
-from .models import Enfermero, SolicitudRemision, AgendaCita
-from .models import Interno, Enfermero, SolicitudRemision, AgendaCita, ConsultaMedica, OrdenLaboratorio
-from .models import DescuentoFundacion, CuentaPorPagar, CuotaFamiliar, Donacion, GastoOperativo
-from .models import Interno, Donacion, GastoOperativo, AgendaCita, ConsultaMedica
+from .models import (
+    Interno, FamiliarResponsable, MedicoEspecialista, Enfermero,
+    SolicitudRemision, AgendaCita, ConsultaMedica, OrdenLaboratorio,
+    VisitaMedica, PagoFundacion, Donacion, GastoOperativo,
+    DescuentoFundacion, CuentaPorPagar, CuotaFamiliar
+)
 
 # Vista pública para usuarios generales (Landing Page)
 def inicio(request):
