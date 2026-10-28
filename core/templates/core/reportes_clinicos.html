@@ -14,11 +14,8 @@
                     <tr><th class="px-6 py-3">Residente</th><th class="px-6 py-3">Motivo de Reclusión</th><th class="px-6 py-3 text-center">Acción</th></tr>
                 </thead>
                 <tbody class="divide-y text-gray-600">
-                    {% for i in internos %}
                     <tr class="hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-800">{{ i.nombre }} {{ i.apellido }}</td><td class="px-6 py-4">{{ i.motivo_reclusion }}</td><td class="px-6 py-4 text-center"><a href="#" class="text-rose-600 hover:underline font-semibold">Generar Reporte Clínico</a></td></tr>
-                    {% empty %}
                     <tr><td colspan="3" class="px-6 py-10 text-center text-gray-400 italic">No hay residentes registrados.</td></tr>
-                    {% endfor %}
                 </tbody>
             </table>
         </div>

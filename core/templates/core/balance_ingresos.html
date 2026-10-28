@@ -14,11 +14,8 @@
                     <tr><th class="px-6 py-3">Fecha</th><th class="px-6 py-3">Concepto / Donante</th><th class="px-6 py-3">Monto Ingresado (Q)</th></tr>
                 </thead>
                 <tbody class="divide-y text-gray-600">
-                    {% for d in donaciones %}
                     <tr class="hover:bg-gray-50"><td class="px-6 py-4">{{ d.fecha }}</td><td class="px-6 py-4 font-bold text-gray-800">{{ d.donante }}</td><td class="px-6 py-4 font-semibold text-emerald-700">Q{{ d.monto }}</td></tr>
-                    {% empty %}
                     <tr><td colspan="3" class="px-6 py-10 text-center text-gray-400 italic">No hay ingresos registrados.</td></tr>
-                    {% endfor %}
                 </tbody>
             </table>
         </div>
