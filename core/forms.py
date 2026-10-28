@@ -4,4 +4,4 @@ from .models import Interno
 class InternoForm(forms.ModelForm):
     class Meta:
         model = Interno
-        fields = '__all__' # O puedes listar los campos que necesites mostrar
+        fields = ['nombre_completo', 'fecha_nacimiento', 'motivo_reclusion', 'habitacion', 'psicopatologias'] # O puedes listar los campos que necesites mostrar
