@@ -2,6 +2,7 @@ from django.db import models
 
 class Interno(models.Model):
     nombre_completo = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, default="", blank=True, null=True)
     fecha_nacimiento = models.DateField(null=True, blank=True)
     # habitacion = models.CharField(max_length=20, null=True, blank=True)
     motivo_reclusion = models.TextField()
@@ -155,5 +156,4 @@ class CuotaFamiliar(models.Model):
     def __str__(self):
         return f"Cuota {self.mes_correspondiente} - {self.interno}" 
 
-#hay errores asi que con este comentario se fuerzan las columnas a que se actualicen en Aiven
 # Create your models here.
