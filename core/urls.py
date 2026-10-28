@@ -28,6 +28,7 @@ from .views import (
     estado_egreso_view,
     control_costos_view,
     exportacion_pdf_excel_view,
+    registrar_interno_view,
 )
 
 urlpatterns = [
@@ -36,6 +37,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('dashboard/', dashboard_view, name='dashboard'),
     path('expedientes/', expedientes_view, name='expedientes_generales'),
+    path('expedientes/nuevo/', registrar_interno_view, name='registrar_interno'),
     path('motivos-reclusion/', motivos_reclusion_view, name='motivos_reclusion'),
     path('ficha-medica/', ficha_medica_view, name='ficha_medica'),
     path('psicopatologias/', psicopatologias_view, name='registro_psicopatologias'),

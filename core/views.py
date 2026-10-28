@@ -149,3 +149,13 @@ def control_costos_view(request):
 @login_required
 def exportacion_pdf_excel_view(request):
     return render(request, 'core/exportacion_pdf_excel.html', {'usuario': request.user})
+
+def registrar_interno_view(request):
+    if request.method == 'POST':
+        form = InternoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('expedientes_generales')
+    else:
+        form = InternoForm()
+    return render(request, 'core/registrar_interno.html', {'form': form})
