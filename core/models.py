@@ -95,7 +95,7 @@ class VisitaMedica(models.Model):
 
 class PagoFundacion(models.Model):
     visita = models.ForeignKey(VisitaMedica, on_delete=models.CASCADE, related_name='pagos', null=True, blank=True)
-    fecha = models.DateField(auto_now_add=True, null=True, blank=True)
+    fecha = models.DateField(null=True, blank=True)
     monto = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     forma_pago = models.CharField(max_length=50, default='Efectivo/Transferencia')
 
@@ -157,4 +157,6 @@ class CuotaFamiliar(models.Model):
 
     def __str__(self):
         return f"Cuota {self.mes_correspondiente} - {self.interno}" 
+
+#hay errores asi que con este comentario se fuerzan las columnas a que se actualicen en Aiven
 # Create your models here.
