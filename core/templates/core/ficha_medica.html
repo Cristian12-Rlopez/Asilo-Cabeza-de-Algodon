@@ -21,11 +21,8 @@
                     <tr><th class="px-6 py-3">Residente</th><th class="px-6 py-3">Medicinas de Cajón (Tratamiento Fijo)</th></tr>
                 </thead>
                 <tbody class="divide-y text-sm text-gray-600">
-                    {% for i in internos %}
                     <tr class="hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-800">{{ i.nombre }} {{ i.apellido }}</td><td class="px-6 py-4 text-emerald-700 font-semibold">{{ i.medicinas_cajon|default:"Sin medicinas de cajón asignadas" }}</td></tr>
-                    {% empty %}
                     <tr><td colspan="2" class="px-6 py-10 text-center text-gray-400 italic">No hay registros.</td></tr>
-                    {% endfor %}
                 </tbody>
             </table>
         </div>
